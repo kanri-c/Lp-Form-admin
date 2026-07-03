@@ -1,0 +1,230 @@
+.main {
+  min-height: 100vh;
+  padding: 48px 24px;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.back {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: #555555;
+  margin-bottom: 24px;
+  transition: color 0.2s;
+}
+
+.back:hover {
+  color: #2f5d50;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.statusBadge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #2f5d50;
+}
+
+.empty {
+  font-size: 0.9rem;
+  color: #777777;
+}
+
+/* 基本情報 */
+.infoGrid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 10px 16px;
+}
+
+.infoGrid dt {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #777777;
+}
+
+.infoGrid dd {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+}
+
+.otherInfo {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #eeeeee;
+  font-size: 0.875rem;
+  color: #555555;
+  white-space: pre-wrap;
+}
+
+/* SNS */
+.snsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.snsList li {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.snsPlatform {
+  font-weight: 600;
+  color: #2f5d50;
+  min-width: 90px;
+}
+
+.snsList a {
+  color: #555555;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* メニュー */
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.menuItem {
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.menuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.menuName {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.menuPrice {
+  font-size: 0.9rem;
+  color: #2f5d50;
+  font-weight: 600;
+}
+
+.menuDescription {
+  font-size: 0.875rem;
+  color: #555555;
+  line-height: 1.6;
+}
+
+/* 初稿URL */
+.previewLink {
+  font-size: 0.95rem;
+  color: #2f5d50;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* 修正履歴 */
+.revisionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.revisionItem {
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.revisionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.revisionNo {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #333333;
+}
+
+.revisionStatus {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.revisionDone {
+  color: #166534;
+  background-color: #dcfce7;
+}
+
+.revisionOpen {
+  color: #b45309;
+  background-color: #fef3c7;
+}
+
+.revisionArea {
+  font-size: 0.82rem;
+  color: #777777;
+  margin-bottom: 6px;
+}
+
+.revisionContent {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.revisionDate {
+  font-size: 0.8rem;
+  color: #aaaaaa;
+}

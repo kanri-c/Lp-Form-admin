@@ -1,0 +1,120 @@
+.main {
+  min-height: 100vh;
+  padding: 48px 24px;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.back {
+  font-size: 0.875rem;
+  color: #555555;
+  transition: color 0.2s;
+}
+
+.back:hover {
+  color: #2f5d50;
+}
+
+.markAllRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.markAllButton {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2f5d50;
+  background: #ffffff;
+  border: 1px solid #2f5d50;
+  border-radius: 999px;
+  padding: 6px 18px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.markAllButton:hover:not(:disabled) {
+  background-color: #2f5d50;
+  color: #ffffff;
+}
+
+.markAllButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 一覧 */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+  padding: 14px 18px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.item:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.itemUnread {
+  background: #f0f5f3;
+  border-color: #d5e5e0;
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2f5d50;
+  margin-top: 6px;
+}
+
+.itemBody {
+  flex: 1;
+}
+
+.itemMessage {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.itemDate {
+  font-size: 0.78rem;
+  color: #999999;
+}
+
+.empty {
+  text-align: center;
+  padding: 64px 0;
+  color: #999999;
+  font-size: 0.95rem;
+}

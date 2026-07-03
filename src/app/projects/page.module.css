@@ -1,0 +1,264 @@
+.main {
+  min-height: 100vh;
+  padding: 48px 24px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.roleBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #2f5d50;
+  padding: 3px 12px;
+  border-radius: 999px;
+}
+
+/* 検索フォーム */
+.searchForm {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 240px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #2f5d50;
+}
+
+.statusSelect {
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.searchButton {
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2f5d50;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.searchButton:hover {
+  background-color: #254a3f;
+}
+
+/* 案件一覧 */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  display: block;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.storeName {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.statusBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.82rem;
+  color: #777777;
+}
+
+.empty {
+  text-align: center;
+  padding: 64px 0;
+  color: #999999;
+  font-size: 0.95rem;
+}
+
+/* 操作フォーム共通 */
+.actionRow {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.actionRow:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.actionLabel {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.actionInputRow {
+  display: flex;
+  gap: 8px;
+}
+
+.actionInput {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+}
+
+.actionInput:focus {
+  outline: none;
+  border-color: #2f5d50;
+}
+
+.actionButton {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2f5d50;
+  border: none;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.actionButton:hover:not(:disabled) {
+  background-color: #254a3f;
+}
+
+.actionButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dangerButton {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #d14343;
+  background: #ffffff;
+  border: 1px solid #d14343;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dangerButton:hover:not(:disabled) {
+  background-color: #d14343;
+  color: #ffffff;
+}
+
+.dangerButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.actionError {
+  font-size: 0.82rem;
+  color: #d14343;
+  margin-top: 8px;
+}
+
+.smallButton {
+  margin-top: 10px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2f5d50;
+  background: #ffffff;
+  border: 1px solid #2f5d50;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.smallButton:hover:not(:disabled) {
+  background-color: #2f5d50;
+  color: #ffffff;
+}
+
+.smallButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.navLink {
+  font-size: 0.875rem;
+  color: #2f5d50;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

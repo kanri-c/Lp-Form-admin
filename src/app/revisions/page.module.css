@@ -1,0 +1,144 @@
+.main {
+  min-height: 100vh;
+  padding: 48px 24px;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.back {
+  font-size: 0.875rem;
+  color: #555555;
+  transition: color 0.2s;
+}
+
+.back:hover {
+  color: #2f5d50;
+}
+
+/* フィルタタブ */
+.filterTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.filterTab {
+  padding: 6px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555555;
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 999px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.filterTab:hover {
+  border-color: #2f5d50;
+}
+
+.filterTabActive {
+  background: #2f5d50;
+  color: #ffffff;
+  border-color: #2f5d50;
+}
+
+/* 一覧 */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  display: block;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.storeName {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.statusBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.statusOpen {
+  color: #b45309;
+  background-color: #fef3c7;
+}
+
+.statusDone {
+  color: #166534;
+  background-color: #dcfce7;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: #999999;
+  margin-bottom: 8px;
+}
+
+.targetArea {
+  font-size: 0.82rem;
+  color: #777777;
+  margin-bottom: 6px;
+}
+
+.content {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.empty {
+  text-align: center;
+  padding: 64px 0;
+  color: #999999;
+  font-size: 0.95rem;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
