@@ -1,0 +1,21 @@
+.smallButton {
+  margin-top: 10px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2f5d50;
+  background: #ffffff;
+  border: 1px solid #2f5d50;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.smallButton:hover:not(:disabled) {
+  background-color: #2f5d50;
+  color: #ffffff;
+}
+
+.smallButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

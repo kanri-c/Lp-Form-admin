@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "./page.module.css";
+import styles from "./PreviewUrlForm.module.css";
 import { registerPreviewUrl } from "./actions";
 
 type Props = {

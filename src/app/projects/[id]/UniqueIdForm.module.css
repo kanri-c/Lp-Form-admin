@@ -1,0 +1,58 @@
+.actionRow {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.actionLabel {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.actionInputRow {
+  display: flex;
+  gap: 8px;
+}
+
+.actionInput {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+}
+
+.actionInput:focus {
+  outline: none;
+  border-color: #2f5d50;
+}
+
+.actionButton {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2f5d50;
+  border: none;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.actionButton:hover:not(:disabled) {
+  background-color: #254a3f;
+}
+
+.actionButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.actionError {
+  font-size: 0.82rem;
+  color: #d14343;
+  margin-top: 8px;
+}

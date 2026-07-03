@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "./page.module.css";
+import styles from "./UniqueIdForm.module.css";
 import { registerUniqueId } from "./actions";
 
 type Props = {

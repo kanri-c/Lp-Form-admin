@@ -13,7 +13,6 @@
   padding: 48px 32px;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   width: 100%;
   max-width: 480px;
 }
@@ -27,14 +26,13 @@
 .loginButton {
   display: inline-block;
   padding: 12px 40px;
-  background-color: #2f5d50;
-  color: #ffffff;
+  background-color: #f5f375;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
-  transition: background-color 0.2s;
+  transition: tramsform 0.1s wase-in-out, opacity 0.3s ease;
 }
 
 .loginButton:hover {
-  background-color: #254a3f;
+  opacity: 0.8;
 }

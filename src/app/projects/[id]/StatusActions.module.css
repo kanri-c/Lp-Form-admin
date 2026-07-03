@@ -1,0 +1,57 @@
+.actionRow {
+  margin-bottom: 0;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actionButton {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2f5d50;
+  border: none;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.actionButton:hover:not(:disabled) {
+  background-color: #254a3f;
+}
+
+.actionButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.dangerButton {
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #d14343;
+  background: #ffffff;
+  border: 1px solid #d14343;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dangerButton:hover:not(:disabled) {
+  background-color: #d14343;
+  color: #ffffff;
+}
+
+.dangerButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.actionError {
+  font-size: 0.82rem;
+  color: #d14343;
+  margin-bottom: 8px;
+}

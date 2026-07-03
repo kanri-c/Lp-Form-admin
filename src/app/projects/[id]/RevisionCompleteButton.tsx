@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "./page.module.css";
+import styles from "./RevisionCompleteButton.module.css";
 import { completeRevision } from "./actions";
 
 type Props = {
