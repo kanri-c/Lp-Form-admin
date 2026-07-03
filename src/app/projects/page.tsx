@@ -5,6 +5,7 @@ import { getCurrentUser } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { STATUS_CONFIG } from "@/lib/types";
 import NotificationBell from "@/lib/NotificationBell";
+import AutoRefresh from "@/lib/AutoRefresh";
 
 type Props = {
   searchParams: Promise<{ q?: string; status?: string }>;
@@ -37,6 +38,7 @@ export default async function ProjectsPage({ searchParams }: Props) {
 
   return (
     <main className={styles.main}>
+      <AutoRefresh />
       <div className={styles.container}>
       <div className={styles.header}>
           <h1 className={styles.title}>全案件一覧</h1>
