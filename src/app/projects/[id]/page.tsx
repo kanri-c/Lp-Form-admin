@@ -25,9 +25,13 @@ export default async function ProjectDetailPage({ params }: Props) {
     include: {
       detail: true,
       client: { select: { email: true, displayName: true } },
-      menuItems: { orderBy: { sortOrder: "asc" } },
+      menuItems: {
+        orderBy: { sortOrder: "asc" },
+        include: { assets: true },
+      },
       snsLinks: true,
       revisions: { orderBy: { createdAt: "asc" } },
+      assets: true,
     },
   });
 
@@ -126,6 +130,71 @@ export default async function ProjectDetailPage({ params }: Props) {
           ) : (
             <p className={styles.empty}>メニューが登録されていません。</p>
           )}
+        </section>
+
+        {/* 写真素材 */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>写真素材</h2>
+
+          {/* ロゴ */}
+          <div className={styles.assetGroup}>
+            <h3 className={styles.assetLabel}>ロゴ</h3>
+            {project.assets.filter((a) => a.kind === "logo").length > 0 ? (
+              <div className={styles.assetGrid}>
+                {project.assets
+                  .filter((a) => a.kind === "logo")
+                  .map((asset) => (
+                    <a key={asset.id} href={asset.blobUrl} target="_blank" rel="noopener noreferrer" className={styles.assetItem}>
+                      <img src={asset.blobUrl} alt="ロゴ" className={styles.assetImg} />
+                    </a>
+                  ))}
+              </div>
+            ) : (
+              <p className={styles.empty}>ロゴは登録されていません。</p>
+            )}
+          </div>
+
+          {/* メニュー写真 */}
+          <div className={styles.assetGroup}>
+            <h3 className={styles.assetLabel}>メニュー写真</h3>
+            {project.menuItems.some((m) => m.assets.length > 0) ? (
+              project.menuItems.map(
+                (menu) =>
+                  menu.assets.length > 0 && (
+                    <div key={menu.id} className={styles.menuAssetRow}>
+                      <p className={styles.menuAssetName}>{menu.name}</p>
+                      <div className={styles.assetGrid}>
+                        {menu.assets.map((asset) => (
+                          <a key={asset.id} href={asset.blobUrl} target="_blank" rel="noopener noreferrer" className={styles.assetItem}>
+                            <img src={asset.blobUrl} alt={menu.name} className={styles.assetImg} />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )
+              )
+            ) : (
+              <p className={styles.empty}>メニュー写真は登録されていません。</p>
+            )}
+          </div>
+
+          {/* その他の素材 */}
+          <div className={styles.assetGroup}>
+            <h3 className={styles.assetLabel}>その他の素材</h3>
+            {project.assets.filter((a) => a.kind === "other").length > 0 ? (
+              <div className={styles.assetGrid}>
+                {project.assets
+                  .filter((a) => a.kind === "other")
+                  .map((asset) => (
+                    <a key={asset.id} href={asset.blobUrl} target="_blank" rel="noopener noreferrer" className={styles.assetItem}>
+                      <img src={asset.blobUrl} alt="素材" className={styles.assetImg} />
+                    </a>
+                  ))}
+              </div>
+            ) : (
+              <p className={styles.empty}>その他の素材は登録されていません。</p>
+            )}
+          </div>
         </section>
 
         {/* 初稿URL */}
