@@ -24,13 +24,6 @@
   color: #1a1a1a;
 }
 
-.description {
-  font-size: 0.95rem;
-  color: #555555;
-  text-align: center;
-  line-height: 1.7;
-}
-
 .loginButton {
   display: inline-block;
   padding: 12px 40px;
