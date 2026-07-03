@@ -10,10 +10,7 @@ export default auth((req) => {
     return NextResponse.redirect(new URL("/", req.nextUrl.origin));
   }
 
-  // ログイン済みの場合、トップページへのアクセスは案件一覧へリダイレクト
-  if (isLoggedIn && pathname === "/") {
-    return NextResponse.redirect(new URL("/projects", req.nextUrl.origin));
-  }
+  // トップページ（/）は常にログイン画面を表示する（自動遷移しない）
 });
 
 export const config = {
