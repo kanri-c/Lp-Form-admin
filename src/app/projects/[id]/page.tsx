@@ -191,7 +191,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
         {/* 初稿URL */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>初稿プレビュー</h2>
+          <h2 className={styles.sectionTitle}>プレビュー</h2>
           {project.previewUrl ? (
             <a href={project.previewUrl} target="_blank" rel="noopener noreferrer" className={styles.previewLink}>
               {project.previewUrl} ↗
