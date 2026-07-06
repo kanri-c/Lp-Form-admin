@@ -1,14 +1,14 @@
-import Link from "next/link";
-import { redirect, notFound } from "next/navigation";
-import styles from "./page.module.css";
-import { getCurrentUser } from "@/lib/session";
-import { prisma } from "@/lib/prisma";
-import { STATUS_CONFIG } from "@/lib/types";
+import Link from 'next/link';
+import { redirect, notFound } from 'next/navigation';
+import styles from './page.module.css';
+import { getCurrentUser } from '@/lib/session';
+import { prisma } from '@/lib/prisma';
+import { STATUS_CONFIG } from '@/lib/types';
 
-import UniqueIdForm from "./UniqueIdForm";
-import PreviewUrlForm from "./PreviewUrlForm";
-import StatusActions from "./StatusActions";
-import RevisionCompleteButton from "./RevisionCompleteButton";
+import UniqueIdForm from './UniqueIdForm';
+import PreviewUrlForm from './PreviewUrlForm';
+import StatusActions from './StatusActions';
+import RevisionCompleteButton from './RevisionCompleteButton';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -18,7 +18,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   const { id } = await params;
 
   const user = await getCurrentUser();
-  if (!user) redirect("/");
+  if (!user) redirect('/');
 
   const project = await prisma.project.findUnique({
     where: { id },
@@ -26,18 +26,18 @@ export default async function ProjectDetailPage({ params }: Props) {
       detail: true,
       client: { select: { email: true, displayName: true } },
       menuItems: {
-        orderBy: { sortOrder: "asc" },
+        orderBy: { sortOrder: 'asc' },
         include: { assets: true },
       },
       snsLinks: true,
-      revisions: { orderBy: { createdAt: "asc" } },
+      revisions: { orderBy: { createdAt: 'asc' } },
       assets: true,
     },
   });
 
   if (!project) notFound();
 
-  const isAdmin = user.role === "admin";
+  const isAdmin = user.role === 'admin';
 
   return (
     <main className={styles.main}>
@@ -47,9 +47,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         </Link>
 
         <div className={styles.header}>
-          <h1 className={styles.title}>
-            {project.detail?.storeName ?? "（未設定）"}
-          </h1>
+          <h1 className={styles.title}>{project.detail?.storeName ?? '（未設定）'}</h1>
           <span
             className={styles.statusBadge}
             style={{
@@ -66,29 +64,27 @@ export default async function ProjectDetailPage({ params }: Props) {
           <h2 className={styles.sectionTitle}>基本情報</h2>
           <dl className={styles.infoGrid}>
             <dt>ユニークID</dt>
-            <dd>{project.uniqueId ?? "未登録"}</dd>
+            <dd>{project.uniqueId ?? '未登録'}</dd>
             <dt>代表者名</dt>
-            <dd>{project.detail?.repName ?? "-"}</dd>
+            <dd>{project.detail?.repName ?? '-'}</dd>
             <dt>電話番号</dt>
-            <dd>{project.detail?.phone ?? "-"}</dd>
+            <dd>{project.detail?.phone ?? '-'}</dd>
             <dt>住所</dt>
-            <dd>{project.detail?.address ?? "-"}</dd>
+            <dd>{project.detail?.address ?? '-'}</dd>
             <dt>最寄駅</dt>
-            <dd>{project.detail?.nearestStation || "-"}</dd>
+            <dd>{project.detail?.nearestStation || '-'}</dd>
             <dt>営業時間</dt>
-            <dd>{project.detail?.businessHours || "-"}</dd>
+            <dd>{project.detail?.businessHours || '-'}</dd>
             <dt>定休日</dt>
-            <dd>{project.detail?.holidays || "-"}</dd>
+            <dd>{project.detail?.holidays || '-'}</dd>
             <dt>依頼者アカウント</dt>
             <dd>
               {project.client.displayName} ({project.client.email})
             </dd>
             <dt>依頼日</dt>
-            <dd>{project.createdAt.toLocaleDateString("ja-JP")}</dd>
+            <dd>{project.createdAt.toLocaleDateString('ja-JP')}</dd>
           </dl>
-          {project.detail?.otherInfo && (
-            <p className={styles.otherInfo}>{project.detail.otherInfo}</p>
-          )}
+          {project.detail?.otherInfo && <p className={styles.otherInfo}>{project.detail.otherInfo}</p>}
         </section>
 
         {/* SNS */}
@@ -117,13 +113,9 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <div key={menu.id} className={styles.menuItem}>
                   <div className={styles.menuHeader}>
                     <span className={styles.menuName}>{menu.name}</span>
-                    {menu.priceText && (
-                      <span className={styles.menuPrice}>{menu.priceText}</span>
-                    )}
+                    {menu.priceText && <span className={styles.menuPrice}>{menu.priceText}</span>}
                   </div>
-                  {menu.description && (
-                    <p className={styles.menuDescription}>{menu.description}</p>
-                  )}
+                  {menu.description && <p className={styles.menuDescription}>{menu.description}</p>}
                 </div>
               ))}
             </div>
@@ -139,10 +131,10 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* ロゴ */}
           <div className={styles.assetGroup}>
             <h3 className={styles.assetLabel}>ロゴ</h3>
-            {project.assets.filter((a) => a.kind === "logo").length > 0 ? (
+            {project.assets.filter((a) => a.kind === 'logo').length > 0 ? (
               <div className={styles.assetGrid}>
                 {project.assets
-                  .filter((a) => a.kind === "logo")
+                  .filter((a) => a.kind === 'logo')
                   .map((asset) => (
                     <a key={asset.id} href={asset.blobUrl} target="_blank" rel="noopener noreferrer" className={styles.assetItem}>
                       <img src={asset.blobUrl} alt="ロゴ" className={styles.assetImg} />
@@ -171,7 +163,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                         ))}
                       </div>
                     </div>
-                  )
+                  ),
               )
             ) : (
               <p className={styles.empty}>メニュー写真は登録されていません。</p>
@@ -181,10 +173,10 @@ export default async function ProjectDetailPage({ params }: Props) {
           {/* その他の素材 */}
           <div className={styles.assetGroup}>
             <h3 className={styles.assetLabel}>その他の素材</h3>
-            {project.assets.filter((a) => a.kind === "other").length > 0 ? (
+            {project.assets.filter((a) => a.kind === 'other').length > 0 ? (
               <div className={styles.assetGrid}>
                 {project.assets
-                  .filter((a) => a.kind === "other")
+                  .filter((a) => a.kind === 'other')
                   .map((asset) => (
                     <a key={asset.id} href={asset.blobUrl} target="_blank" rel="noopener noreferrer" className={styles.assetItem}>
                       <img src={asset.blobUrl} alt="素材" className={styles.assetImg} />
@@ -201,12 +193,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>初稿プレビュー</h2>
           {project.previewUrl ? (
-            <a
-              href={project.previewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.previewLink}
-            >
+            <a href={project.previewUrl} target="_blank" rel="noopener noreferrer" className={styles.previewLink}>
               {project.previewUrl} ↗
             </a>
           ) : (
@@ -223,34 +210,14 @@ export default async function ProjectDetailPage({ params }: Props) {
                 <li key={rev.id} className={styles.revisionItem}>
                   <div className={styles.revisionHeader}>
                     <span className={styles.revisionNo}>
-                      修正依頼 {rev.seqNo}回目
-                      （{rev.phase === "pre" ? "公開前" : "公開後"}）
+                      修正依頼 {rev.seqNo}回目 （{rev.phase === 'pre' ? '公開前' : '公開後'}）
                     </span>
-                    <span
-                      className={`${styles.revisionStatus} ${
-                        rev.status === "done"
-                          ? styles.revisionDone
-                          : styles.revisionOpen
-                      }`}
-                    >
-                      {rev.status === "done" ? "対応済み" : "対応中"}
-                    </span>
+                    <span className={`${styles.revisionStatus} ${rev.status === 'done' ? styles.revisionDone : styles.revisionOpen}`}>{rev.status === 'done' ? '対応済み' : '対応中'}</span>
                   </div>
-                  {rev.targetArea && (
-                    <p className={styles.revisionArea}>
-                      該当箇所: {rev.targetArea}
-                    </p>
-                  )}
+                  {rev.targetArea && <p className={styles.revisionArea}>該当箇所: {rev.targetArea}</p>}
                   <p className={styles.revisionContent}>{rev.content}</p>
-                  <p className={styles.revisionDate}>
-                    {rev.createdAt.toLocaleDateString("ja-JP")}
-                  </p>
-                  {isAdmin && rev.status === "open" && (
-                    <RevisionCompleteButton
-                      projectId={project.id}
-                      revisionId={rev.id}
-                    />
-                  )}
+                  <p className={styles.revisionDate}>{rev.createdAt.toLocaleDateString('ja-JP')}</p>
+                  {isAdmin && rev.status === 'open' && <RevisionCompleteButton projectId={project.id} revisionId={rev.id} />}
                 </li>
               ))}
             </ul>
@@ -262,20 +229,14 @@ export default async function ProjectDetailPage({ params }: Props) {
         {/* 操作エリア（管理のみ）は次の段階で追加 */}
         {isAdmin && (
           <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>操作</h2>
+            <h2 className={styles.sectionTitle}>操作</h2>
 
-          <UniqueIdForm
-            projectId={project.id}
-            currentValue={project.uniqueId}
-          />
+            <UniqueIdForm projectId={project.id} currentValue={project.uniqueId} />
 
-          <PreviewUrlForm
-            projectId={project.id}
-            currentValue={project.previewUrl}
-          />
+            {(project.status === 'waiting' || project.status === 'in_production') && <PreviewUrlForm projectId={project.id} currentValue={project.previewUrl} />}
 
-          <StatusActions projectId={project.id} status={project.status} />
-        </section>
+            <StatusActions projectId={project.id} status={project.status} />
+          </section>
         )}
       </div>
     </main>
