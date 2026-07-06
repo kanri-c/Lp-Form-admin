@@ -21,7 +21,7 @@ export default function StatusActions({ projectId, status }: Props) {
   const [error, setError] = useState("");
 
   const handlePublish = async () => {
-    if (!confirm("電気マッチングを確認しましたか？公開作業を行います。")) return;
+    if (!confirm("電気マッチングを確認しましたか？公開を行います。")) return;
     setIsLoading(true);
     const result = await publishProject(projectId);
     setIsLoading(false);
@@ -58,7 +58,7 @@ export default function StatusActions({ projectId, status }: Props) {
             onClick={handlePublish}
             disabled={isLoading}
           >
-            公開作業を行う
+            公開
           </button>
         )}
         {status === "published" && (
